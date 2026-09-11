@@ -1,0 +1,53 @@
+{
+  "snapshots": [
+    {
+      "workload": {
+        "key": "sample-workload",
+        "label": "scheduled-sample",
+        "principal": "sample-team"
+      },
+      "execution": {
+        "key": "sample-execution",
+        "state": "success",
+        "began_at": "2026-08-27T00:00:00+00:00",
+        "finished_at": "2026-08-27T00:30:00+00:00"
+      },
+      "layout": {
+        "cloud": "aws",
+        "runtime": "file",
+        "region": "sample-region",
+        "worker_shape": "sample.8x32",
+        "driver_shape": "sample.8x32",
+        "fixed_workers": 10
+      },
+      "worker_signals": {
+        "observations": 30,
+        "cpu_q95": 20.0,
+        "cpu_max": 38.0,
+        "ram_q95": 24.0,
+        "ram_max": 41.0,
+        "io_wait_q95": 2.0,
+        "origin": "generated sample"
+      },
+      "driver_signals": {
+        "observations": 30,
+        "cpu_q95": 14.0,
+        "cpu_max": 27.0,
+        "ram_q95": 19.0,
+        "ram_max": 34.0,
+        "origin": "generated sample"
+      },
+      "spark_evidence": {
+        "is_complete": true,
+        "applications": 1,
+        "tasks": 800,
+        "executor_compute_ms": 920000,
+        "jvm_gc_ms": 18000,
+        "executor_count_mean": 2.4,
+        "executor_count_q95": 4.0,
+        "executor_count_max": 5,
+        "origin": "generated sample"
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "source": {
+    "kind": "file",
+    "cloud": "aws",
+    "region": "sample-region",
+    "parameters": {
+      "snapshot_file": "../examples/sample_snapshot.json"
+    }
+  },
+  "window": {
+    "end": "today",
+    "days": 3650,
+    "timezone": "UTC"
+  },
+  "output": {
+    "directory": "results"
+  },
+  "shapes": {
+    "sample.8x32": {
+      "cores": 8,
+      "ram_gib": 32,
+      "price_per_hour": 1.0,
+      "cpu_arch": "x86_64"
+    },
+    "sample.4x16": {
+      "cores": 4,
+      "ram_gib": 16,
+      "price_per_hour": 0.5,
+      "cpu_arch": "x86_64"
+    }
+  },
+  "allowed_worker_shapes": ["sample.4x16"],
+  "allowed_driver_shapes": ["sample.4x16"]
+}

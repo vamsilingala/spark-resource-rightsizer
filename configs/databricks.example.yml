@@ -1,0 +1,39 @@
+source:
+  kind: databricks
+  cloud: aws # aws, azure, or gcp
+  region: example-region
+  parameters:
+    # Uses the Databricks SDK credential chain. No secret belongs in this file.
+    profile: ${DATABRICKS_CONFIG_PROFILE:-}
+    scheduled_only: true
+    sql_http_path: ${DATABRICKS_SQL_HTTP_PATH:-}
+    node_metrics_table: system.compute.node_timeline
+    # Supports local paths and S3, ADLS, or GCS URIs. Directories are recursive.
+    event_log_location: ${SPARK_EVENT_LOG_LOCATION:-}
+
+window:
+  end: today
+  days: 14
+  timezone: UTC
+limit: 0
+output:
+  directory: results
+
+# Supply policy-approved shapes for the client's cloud and region. Values here
+# are placeholders, not a hardware or price recommendation.
+shapes:
+  sample.current:
+    cores: 8
+    ram_gib: 32
+    scratch_gib: 0
+    cpu_arch: x86_64
+    price_per_hour: null
+  sample.candidate:
+    cores: 4
+    ram_gib: 16
+    scratch_gib: 0
+    cpu_arch: x86_64
+    price_per_hour: null
+
+allowed_worker_shapes: [sample.candidate]
+allowed_driver_shapes: [sample.candidate]

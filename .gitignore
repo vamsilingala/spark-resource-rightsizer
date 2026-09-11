@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+build/
+dist/
+*.egg-info/
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+
+# Local and client-specific configuration
+.env
+.env.*
+!.env.example
+configs/clients/
+*.local.yml
+*.local.yaml
+
+# Profiler outputs and client data
+reports/
+results/
+artifacts/
+*.csv
+*.parquet
+*.jsonl
+*.eventlog
+
+# Databricks local state
+.databricks/
+.bundle/

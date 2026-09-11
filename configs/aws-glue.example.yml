@@ -1,0 +1,32 @@
+source:
+  kind: aws_glue
+  cloud: aws
+  region: us-east-1
+  parameters:
+    # Uses the AWS SDK credential chain. aws_profile is optional.
+    aws_profile: ${AWS_PROFILE:-}
+    autoscale_floor: 2
+    dpu_price_per_hour: null
+    event_log_location: ${GLUE_EVENT_LOG_LOCATION:-}
+
+window:
+  end: today
+  days: 14
+  timezone: UTC
+limit: 0
+output:
+  directory: results
+
+# Restrict candidates for regional availability and rollout policy. G.025X is
+# omitted because it is limited to eligible streaming workloads.
+allowed_worker_shapes:
+  - G.1X
+  - G.2X
+  - G.4X
+  - G.8X
+  - G.12X
+  - G.16X
+  - R.1X
+  - R.2X
+  - R.4X
+  - R.8X
